@@ -1,6 +1,6 @@
 /**
  * @file lv_conf.h
- * Configuration file for v8.3.0-dev
+ * Configuration file for v8.2.0
  */
 
 /*
@@ -188,9 +188,6 @@
     /*Custom blend mode for mask drawing, disable if you need to link with older SDL2 lib*/
     #define LV_GPU_SDL_CUSTOM_BLEND_MODE (SDL_VERSION_ATLEAST(2, 0, 6))
 #endif
-
-/*USE GLES renderer */
-#define LV_USE_GPU_GLES 1
 
 /*-------------
  * Logging
