@@ -48,6 +48,7 @@ typedef struct {
 static void window_create(monitor_t * m);
 static void monitor_sdl_gles_clean_up(void);
 static void sdl_gles_event_handler(lv_timer_t * t);
+static void mouse_handler(SDL_Event *event);
 static int tick_thread(void *data);
 
 /**********************
@@ -55,6 +56,10 @@ static int tick_thread(void *data);
  **********************/
 static monitor_t monitor;
 static volatile bool quit = false;
+
+static bool left_button_down = false;
+static int16_t last_x = 0;
+static int16_t last_y = 0;
 
 static char triangle_vertex_shader_str[] =
     "attribute vec3 a_position;   \n"
@@ -142,7 +147,7 @@ static void sdl_gles_event_handler(lv_timer_t * t)
     SDL_Event event;
     while (!quit) {
         while (SDL_PollEvent(&event)) {
-
+            mouse_handler(&event);
             if (event.type == SDL_QUIT) {
                 quit = true;
             }
@@ -227,6 +232,42 @@ static void window_create(monitor_t *m)
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 
+}
+
+static void mouse_handler(SDL_Event *event)
+{
+    switch(event->type) {
+        case SDL_MOUSEBUTTONUP:
+            if(event->button.button == SDL_BUTTON_LEFT)
+                left_button_down = false;
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            if(event->button.button == SDL_BUTTON_LEFT) {
+                left_button_down = true;
+                last_x = event->motion.x / SDL_ZOOM;
+                last_y = event->motion.y / SDL_ZOOM;
+            }
+            break;
+        case SDL_MOUSEMOTION:
+            last_x = event->motion.x / SDL_ZOOM;
+            last_y = event->motion.y / SDL_ZOOM;
+            break;
+
+        case SDL_FINGERUP:
+            left_button_down = false;
+            last_x = LV_HOR_RES * event->tfinger.x / SDL_ZOOM;
+            last_y = LV_VER_RES * event->tfinger.y / SDL_ZOOM;
+            break;
+        case SDL_FINGERDOWN:
+            left_button_down = true;
+            last_x = LV_HOR_RES * event->tfinger.x / SDL_ZOOM;
+            last_y = LV_VER_RES * event->tfinger.y / SDL_ZOOM;
+            break;
+        case SDL_FINGERMOTION:
+            last_x = LV_HOR_RES * event->tfinger.x / SDL_ZOOM;
+            last_y = LV_VER_RES * event->tfinger.y / SDL_ZOOM;
+            break;
+    }
 }
 
 static void monitor_sdl_gles_clean_up(void)
