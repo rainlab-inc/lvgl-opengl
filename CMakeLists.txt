@@ -23,4 +23,4 @@ set(LV_CONF_PATH
         CACHE STRING "" FORCE)
 
 
-target_link_libraries(lvgl-opengl SDL2 lvgl::lvgl lv_drivers)
+target_link_libraries(lvgl-opengl SDL2 lvgl::lvgl lvgl::examples lv_drivers)
