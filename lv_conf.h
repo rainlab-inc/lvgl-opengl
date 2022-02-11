@@ -190,7 +190,11 @@
 #endif
 
 /*Use GLES renderer API*/
-#define LV_USE_GPU_GLES 1
+#define LV_USE_GPU_SDL_GLES 1
+#if LV_USE_GPU_SDL_GLES
+    #define LV_GPU_SDL_GLES_INCLUDE_PATH <SDL2/SDL.h>
+#endif
+
 
 /*-------------
  * Logging

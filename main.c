@@ -1,4 +1,4 @@
-#include "sdl_gles.h"
+#include "lv_drivers/sdl/sdl_gles.h"
 
 #define _DEFAULT_SOURCE
 #include <unistd.h>
