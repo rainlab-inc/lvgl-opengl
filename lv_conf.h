@@ -193,6 +193,7 @@
 #define LV_USE_GPU_SDL_GLES 1
 #if LV_USE_GPU_SDL_GLES
     #define LV_GPU_SDL_GLES_INCLUDE_PATH <SDL2/SDL.h>
+    #define LV_GPU_SDL_GLES_GLAD_INCLUDE_PATH <glad/glad.h>
 #endif
 
 

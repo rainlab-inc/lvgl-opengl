@@ -10,6 +10,11 @@
 static void hal_init(void)
 {
     sdl_gles_init();
+    static lv_disp_draw_buf_t draw_buf;
+    sdl_gles_disp_draw_buf_init(&draw_buf);
+    static lv_disp_drv_t disp_drv;
+    sdl_gles_disp_drv_init(&disp_drv, &draw_buf);
+    lv_disp_t *disp = lv_disp_drv_register(&disp_drv);
 }
 
 

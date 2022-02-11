@@ -11,6 +11,7 @@ project(lvgl-opengl)
 #add_executable(lvgl-opengl main.c sdl_gles.h sdl_gles.c gl.h gl.c ${SOURCES} ${INCLUDES})
 
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR})
+INCLUDE_DIRECTORIES(lv_drivers/glad/include)
 add_compile_definitions(LV_CONF_INCLUDE_SIMPLE)
 add_subdirectory(lvgl)
 add_subdirectory(lv_drivers)
