@@ -24,7 +24,9 @@ int main()
     lv_init();
     hal_init();
 
-    lv_example_btn_1();
+    //lv_example_btn_1();
+    //lv_example_btn_2();
+    lv_example_checkbox_1();
 
     while (1) {
         lv_timer_handler();
