@@ -49,7 +49,7 @@
 #define LV_MEM_CUSTOM 0
 #if LV_MEM_CUSTOM == 0
     /*Size of the memory available for `lv_mem_alloc()` in bytes (>= 2kB)*/
-    #define LV_MEM_SIZE (48U * 1024U)          /*[bytes]*/
+    #define LV_MEM_SIZE (128U * 1024U)          /*[bytes]*/
 
     /*Set an address for the memory pool instead of allocating it as a normal array. Can be in external SRAM too.*/
     #define LV_MEM_ADR 0     /*0: unused*/
@@ -136,17 +136,17 @@
  *LV_GRAD_CACHE_DEF_SIZE sets the size of this cache in bytes.
  *If the cache is too small the map will be allocated only while it's required for the drawing.
  *0 mean no caching.*/
-#define LV_GRAD_CACHE_DEF_SIZE      0
+#define LV_GRAD_CACHE_DEF_SIZE      8*1024
 
 /*Allow dithering the gradients (to achieve visual smooth color gradients on limited color depth display)
  *LV_DITHER_GRADIENT implies allocating one or two more lines of the object's rendering surface
  *The increase in memory consumption is (32 bits * object width) plus 24 bits * object width if using error diffusion */
-#define LV_DITHER_GRADIENT      0
+#define LV_DITHER_GRADIENT      1
 #if LV_DITHER_GRADIENT
     /*Add support for error diffusion dithering.
      *Error diffusion dithering gets a much better visual result, but implies more CPU consumption and memory when drawing.
      *The increase in memory consumption is (24 bits * object's width)*/
-    #define LV_DITHER_ERROR_DIFFUSION   0
+    #define LV_DITHER_ERROR_DIFFUSION   1
 #endif
 
 /*Maximum buffer size to allocate for rotation.
@@ -194,6 +194,7 @@
 #if LV_USE_GPU_SDL_GLES
     #define LV_GPU_SDL_GLES_INCLUDE_PATH <SDL2/SDL.h>
     #define LV_GPU_SDL_GLES_GLAD_INCLUDE_PATH <glad/glad.h>
+    /* TODO(tan): Get SDL_HOR_RES from lv_conf.h */
     #define LV_GPU_SDL_GLES_HOR_RES 800
     #define LV_GPU_SDL_GLES_VER_RES 600
 #endif
@@ -214,21 +215,21 @@
     *LV_LOG_LEVEL_ERROR       Only critical issue, when the system may fail
     *LV_LOG_LEVEL_USER        Only logs added by the user
     *LV_LOG_LEVEL_NONE        Do not log anything*/
-    #define LV_LOG_LEVEL LV_LOG_LEVEL_INFO
+    #define LV_LOG_LEVEL LV_LOG_LEVEL_USER
 
     /*1: Print the log with 'printf';
     *0: User need to register a callback with `lv_log_register_print_cb()`*/
     #define LV_LOG_PRINTF 1
 
     /*Enable/disable LV_LOG_TRACE in modules that produces a huge number of logs*/
-    #define LV_LOG_TRACE_MEM        1
-    #define LV_LOG_TRACE_TIMER      1
-    #define LV_LOG_TRACE_INDEV      1
+    #define LV_LOG_TRACE_MEM        0
+    #define LV_LOG_TRACE_TIMER      0
+    #define LV_LOG_TRACE_INDEV      0
     #define LV_LOG_TRACE_DISP_REFR  1
-    #define LV_LOG_TRACE_EVENT      1
-    #define LV_LOG_TRACE_OBJ_CREATE 1
-    #define LV_LOG_TRACE_LAYOUT     1
-    #define LV_LOG_TRACE_ANIM       1
+    #define LV_LOG_TRACE_EVENT      0
+    #define LV_LOG_TRACE_OBJ_CREATE 0
+    #define LV_LOG_TRACE_LAYOUT     0
+    #define LV_LOG_TRACE_ANIM       0
 
 #endif  /*LV_USE_LOG*/
 
@@ -358,14 +359,14 @@
 #define LV_FONT_MONTSERRAT_48 0
 
 /*Demonstrate special features*/
-#define LV_FONT_MONTSERRAT_12_SUBPX      0
-#define LV_FONT_MONTSERRAT_28_COMPRESSED 0  /*bpp = 3*/
-#define LV_FONT_DEJAVU_16_PERSIAN_HEBREW 0  /*Hebrew, Arabic, Persian letters and all their forms*/
-#define LV_FONT_SIMSUN_16_CJK            0  /*1000 most common CJK radicals*/
+#define LV_FONT_MONTSERRAT_12_SUBPX      1
+#define LV_FONT_MONTSERRAT_28_COMPRESSED 1  /*bpp = 3*/
+#define LV_FONT_DEJAVU_16_PERSIAN_HEBREW 1  /*Hebrew, Arabic, Persian letters and all their forms*/
+#define LV_FONT_SIMSUN_16_CJK            1  /*1000 most common CJK radicals*/
 
 /*Pixel perfect monospace fonts*/
-#define LV_FONT_UNSCII_8  0
-#define LV_FONT_UNSCII_16 0
+#define LV_FONT_UNSCII_8  1
+#define LV_FONT_UNSCII_16 1
 
 /*Optionally declare custom fonts here.
  *You can use these fonts as default font too and they will be available globally.
@@ -378,13 +379,13 @@
 /*Enable handling large font and/or fonts with a lot of characters.
  *The limit depends on the font size, font face and bpp.
  *Compiler error will be triggered if a font needs it.*/
-#define LV_FONT_FMT_TXT_LARGE 0
+#define LV_FONT_FMT_TXT_LARGE 1
 
 /*Enables/disables support for compressed fonts.*/
-#define LV_USE_FONT_COMPRESSED 0
+#define LV_USE_FONT_COMPRESSED 1
 
 /*Enable subpixel rendering*/
-#define LV_USE_FONT_SUBPX 0
+#define LV_USE_FONT_SUBPX 1
 #if LV_USE_FONT_SUBPX
     /*Set the pixel order of the display. Physical order of RGB channels. Doesn't matter with "normal" fonts.*/
     #define LV_FONT_SUBPX_BGR 0  /*0: RGB; 1:BGR order*/
@@ -705,6 +706,7 @@
 
 /*--END OF LV_CONF_H--*/
 
+#define LVGL
 #endif /*LV_CONF_H*/
 
 #endif /*End of "Content enable"*/
