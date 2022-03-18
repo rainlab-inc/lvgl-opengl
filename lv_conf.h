@@ -190,13 +190,9 @@
 #endif
 
 /*Use GLES renderer API*/
-#define LV_USE_GPU_SDL_GLES 1
-#if LV_USE_GPU_SDL_GLES
-    #define LV_GPU_SDL_GLES_INCLUDE_PATH <SDL2/SDL.h>
-    #define LV_GPU_SDL_GLES_GLAD_INCLUDE_PATH <glad/glad.h>
-    /* TODO(tan): Get SDL_HOR_RES from lv_conf.h */
-    #define LV_GPU_SDL_GLES_HOR_RES 800
-    #define LV_GPU_SDL_GLES_VER_RES 600
+#define LV_USE_GPU_GLES 1
+#if LV_USE_GPU_GLES
+    #define LV_GPU_GLES_GLAD_INCLUDE_PATH <glad/glad.h>
 #endif
 
 
