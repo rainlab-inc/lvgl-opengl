@@ -192,6 +192,8 @@
 /*Use GLES renderer API*/
 #define LV_USE_GPU_GLES 1
 #if LV_USE_GPU_GLES
+/*Use GLES renderer with software renderer */
+#define LV_USE_GPU_GLES_SW_MIXED 0
     #define LV_GPU_GLES_GLAD_INCLUDE_PATH <glad/glad.h>
 #endif
 

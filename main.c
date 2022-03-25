@@ -44,22 +44,8 @@ int main()
     lv_init();
     hal_init();
 
-    lv_example_menu_4();
-    //lv_example_btn_1();
-    //lv_example_img_1();
-    //lv_example_img_2();
-    //lv_example_img_2();
-    //lv_example_img_1();
-    //lv_example_checkbox_1();
-    //lv_example_colorwheel_1();
-    //lv_example_btnmatrix_1();
-    //lv_example_btn_1();
-    //lv_example_img_1();
-    //lv_example_checkbox_1();
 
-    //lv_example_keyboard_1();
-
-    //lv_example_img_1();
+    lv_example_btn_1();
 
     while (1) {
         lv_timer_handler();

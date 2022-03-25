@@ -96,7 +96,7 @@
 
 /* Use GLES renderer driver */
 #ifndef USE_SDL_GLES
-#define USE_SDL_GLES 1
+# define USE_SDL_GLES 1
 #endif
 
 #if USE_SDL || USE_SDL_GPU || USE_SDL_GLES
