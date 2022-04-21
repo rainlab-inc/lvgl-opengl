@@ -1,9 +1,9 @@
 # lvgl-opengl
 This is an example SDL application for OpenGL ES 2.0 implementation for [LVGL](https://github.com/lvgl/lvgl) aimed for to run on PinePhone. 
 
-OpenGL fork of the LVGL can be found [here](https://github.com/rainlab-inc/lvgl).
+OpenGL ES 2.0 fork of the LVGL can be found [here](https://github.com/rainlab-inc/lvgl).
 
-Driver can be found [here](https://github.com/rainlab-inc/lv_drivers).
+SDL Driver can be found [here](https://github.com/rainlab-inc/lv_drivers).
 
 ## Draw Functions
 ### Rectangle
