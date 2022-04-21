@@ -1,5 +1,6 @@
 #include "lv_drivers/sdl/sdl_gles.h"
 #include "lvgl/examples/lv_examples.h"
+#include "lvgl/demos/lv_demos.h"
 
 #define _DEFAULT_SOURCE
 #include <unistd.h>
@@ -45,7 +46,8 @@ int main()
     hal_init();
 
 
-    lv_example_btn_1();
+    lv_demo_widgets();
+
 
     while (1) {
         lv_timer_handler();

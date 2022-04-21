@@ -15,7 +15,7 @@
 - draw_outline
 ### Image
 - draw_img :white_check_mark:
-  * TODO: hash textures, avoid creating same textures if they are used more than once.
+  * TODO: hash textures, avoid creating same textures if they are used more than once. :white_check_mark:
   * TODO: handle recolor operation more wisely
   * TODO: handle masks
 ### Letter

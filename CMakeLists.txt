@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.14)
 
 project(lvgl-opengl)
 
-
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR})
 INCLUDE_DIRECTORIES(lv_drivers/glad/include)
 
@@ -22,4 +21,4 @@ set(LV_CONF_PATH
 target_link_libraries(lvgl glad)
 target_link_libraries(lv_drivers glad)
 
-target_link_libraries(lvgl-opengl SDL2 lvgl::lvgl lvgl::examples lv_drivers)
+target_link_libraries(lvgl-opengl SDL2 lvgl::lvgl lvgl::examples lvgl::demos lv_drivers)
