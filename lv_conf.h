@@ -192,8 +192,23 @@
 /*Use GLES renderer API*/
 #define LV_USE_GPU_GLES 1
 #if LV_USE_GPU_GLES
-    #define LV_GPU_GLES_GLAD_INCLUDE_PATH <glad/glad.h>
-    /*Use GLES renderer with software renderer */
+    #define LV_GPU_GLES_USE_EPOXY 1
+    #if LV_GPU_GLES_USE_EPOXY
+        #define LV_GPU_GLES_EPOXY_INCLUDE_PATH <epoxy/egl.h>
+        #define LV_GPU_GLES_LOADER_INCLUDE_PATH LV_GPU_GLES_EPOXY_INCLUDE_PATH
+    #endif
+    #define LV_GPU_GLES_USE_GLAD 0
+    #if LV_GPU_GLES_USE_GLAD
+        #define LV_GPU_GLES_GLAD_INCLUDE_PATH <glad/glad.h>
+        #define LV_GPU_GLES_LOADER_INCLUDE_PATH LV_GPU_GLES_GLAD_INCLUDE_PATH
+    #endif
+    #if LV_GPU_GLES_USE_EPOXY && LV_GPU_GLES_USE_GLAD
+        #error Only one GL loader library is allowed.
+    #elif !(LV_GPU_GLES_USE_EPOXY || LV_GPU_GLES_USE_GLAD)
+        #error Need to specify a GL loader library.
+    #endif
+
+/*Use GLES renderer with software renderer */
     #define LV_USE_GPU_GLES_SW_MIXED 0
     /*Texture cache size*/
     #define LV_GPU_GLES_LRU_SIZE (32 * 1024)
