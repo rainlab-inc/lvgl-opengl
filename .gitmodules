@@ -1,8 +1,8 @@
 [submodule "lvgl"]
 	path = lvgl
-	url = https://github.com/tanaytekin/lvgl
+	url = https://github.com/rainlab-inc/lvgl
 	branch = gles
 [submodule "lv_drivers"]
 	path = lv_drivers
-	url = https://github.com/tanaytekin/lv_drivers.git
+	url = https://github.com/rainlab-inc/lv_drivers.git
 	branch = gles
