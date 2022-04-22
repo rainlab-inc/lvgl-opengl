@@ -1,8 +1,10 @@
 [submodule "lvgl"]
 	path = lvgl
-	url = https://github.com/rainlab-inc/lvgl
+	url = ../lvgl.git
 	branch = gles
+    ignore = all
 [submodule "lv_drivers"]
 	path = lv_drivers
-	url = https://github.com/rainlab-inc/lv_drivers.git
+	url = ../lv_drivers.git
 	branch = gles
+    ignore = all
