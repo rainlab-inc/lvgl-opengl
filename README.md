@@ -5,6 +5,15 @@ OpenGL ES 2.0 fork of the LVGL can be found [here](https://github.com/rainlab-in
 
 SDL Driver can be found [here](https://github.com/rainlab-inc/lv_drivers).
 
+## Quick Start
+### CMake
+``` console
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make -j4
+```
+
 ## Draw Functions
 ### Rectangle
 **TODO**: Coordinates are handled wrong. Need to calculate properly especially for the rounded rectangle.
