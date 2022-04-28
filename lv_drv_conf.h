@@ -96,12 +96,12 @@
 
 /* Use GLES renderer driver */
 #ifndef USE_SDL_GLES
-# define USE_SDL_GLES 1
+# define USE_SDL_GLES 0
 #endif
 
 #if USE_SDL || USE_SDL_GPU || USE_SDL_GLES
-#  define SDL_HOR_RES     800
-#  define SDL_VER_RES     600
+#  define SDL_HOR_RES     1920
+#  define SDL_VER_RES     1080
 
 /* Scale window by this factor (useful when simulating small screens) */
 #  define SDL_ZOOM        1
@@ -115,6 +115,22 @@
 
 /*Open two windows to test multi display support*/
 #  define SDL_DUAL_DISPLAY            0
+#endif
+
+/*-------------------
+ *  GLFW
+ *-------------------*/
+
+/* Use GLFW GLES renderer driver */
+#ifndef USE_GLFW_GLES
+#  define USE_GLFW_GLES 1
+#endif
+
+#if USE_GLFW_GLES
+#  define GLFW_HOR_RES     720
+#  define GLFW_VER_RES     1440
+
+#  define GLFW_INCLUDE_PATH    <GLFW/glfw3.h>
 #endif
 
 /*-------------------
