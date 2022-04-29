@@ -127,8 +127,8 @@
 #endif
 
 #if USE_GLFW_GLES
-#  define GLFW_HOR_RES     720
-#  define GLFW_VER_RES     1440
+#  define GLFW_HOR_RES     1440
+#  define GLFW_VER_RES     720
 
 #  define GLFW_INCLUDE_PATH    <GLFW/glfw3.h>
 #endif

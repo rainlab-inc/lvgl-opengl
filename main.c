@@ -24,6 +24,7 @@ static void hal_init(void)
 
     lv_group_t * g = lv_group_create();
     lv_group_set_default(g);
+
     static lv_indev_drv_t indev_drv_1;
     lv_indev_drv_init(&indev_drv_1);
     indev_drv_1.type = LV_INDEV_TYPE_POINTER;
@@ -36,7 +37,15 @@ static void hal_init(void)
     indev_drv_2.read_cb = sdl_gles_keyboard_read;
     lv_indev_t *kb_indev = lv_indev_drv_register(&indev_drv_2);
     lv_indev_set_group(kb_indev, g);
-#endif 
+#endif
+
+    static lv_indev_drv_t indev_drv_3;
+    lv_indev_drv_init(&indev_drv_3);
+    indev_drv_3.type = LV_INDEV_TYPE_POINTER;
+    indev_drv_3.read_cb = glfw_gles_touch_read;
+    lv_indev_t *touch_indev = lv_indev_drv_register(&indev_drv_3);
+
+
 }
 
 

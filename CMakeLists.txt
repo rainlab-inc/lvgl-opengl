@@ -17,6 +17,6 @@ set(LV_CONF_PATH
 
 
 target_link_libraries(lvgl epoxy)
-target_link_libraries(lv_drivers epoxy)
+target_link_libraries(lv_drivers epoxy wayland-client)
 
 target_link_libraries(lvgl-opengl glfw lvgl::lvgl lvgl::examples lvgl::demos lv_drivers)
