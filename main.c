@@ -30,11 +30,11 @@ static void hal_init(void)
     indev_drv_1.type = LV_INDEV_TYPE_POINTER;
     indev_drv_1.read_cb = glfw_gles_mouse_read;
     lv_indev_t *mouse_indev = lv_indev_drv_register(&indev_drv_1);
-#if 0
+#if 1
     static lv_indev_drv_t indev_drv_2;
     lv_indev_drv_init(&indev_drv_2); /*Basic initialization*/
     indev_drv_2.type = LV_INDEV_TYPE_KEYPAD;
-    indev_drv_2.read_cb = sdl_gles_keyboard_read;
+    indev_drv_2.read_cb = glfw_gles_keyboard_read;
     lv_indev_t *kb_indev = lv_indev_drv_register(&indev_drv_2);
     lv_indev_set_group(kb_indev, g);
 #endif
