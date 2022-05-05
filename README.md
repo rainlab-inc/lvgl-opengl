@@ -6,6 +6,9 @@ OpenGL ES 2.0 fork of the LVGL can be found [here](https://github.com/rainlab-in
 
 SDL Driver can be found [here](https://github.com/rainlab-inc/lv_drivers).
 
+## Screnshot
+![screenshot](screenshot.png)
+
 ## Quick Start
 
 ### Requirements
