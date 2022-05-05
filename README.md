@@ -1,4 +1,5 @@
 # lvgl-opengl
+
 This is an example SDL application for OpenGL ES 2.0 implementation for [LVGL](https://github.com/lvgl/lvgl) aimed for to run on PinePhone. 
 
 OpenGL ES 2.0 fork of the LVGL can be found [here](https://github.com/rainlab-inc/lvgl).
@@ -32,7 +33,6 @@ $ ./lvgl-opengl
 
 ## Draw Functions
 ### Rectangle
-**TODO**: Coordinates are handled wrong. Need to calculate properly especially for the rounded rectangle.
 - draw_shadow 
 - draw_bg
     * plain rect :white_check_mark:
@@ -45,14 +45,16 @@ $ ./lvgl-opengl
 - draw_border
 - draw_outline
 ### Image
-**TODO**: Unable to render images in Release mode. ("No data" error)
+- Hash textures with LRU cache :white_check_mark:
 - draw_img :white_check_mark:
   * **TODO**: hash textures, avoid creating same textures if they are used more than once. :white_check_mark:
   * **TODO**: handle recolor operation more wisely
   * **TODO**: handle masks
 ### Letter
+- Hash glyphs with LRU cache :white_check_mark:
 - **TODO**: Look for pixel perfect alignment for glitches.
 - **TODO**: Test for CJK characters.
+- **TODO**: Pack glyphs to efficient rendering.
 
 ### Arc
 **TODO**: Look for how to draw efficient arcs with GL.
