@@ -6,5 +6,5 @@
 [submodule "lv_drivers"]
 	path = lv_drivers
 	url = ../lv_drivers.git
-	branch = glfw-gles
+	branch = gles-glfw
     ignore = all
